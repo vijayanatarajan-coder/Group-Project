@@ -1,7 +1,108 @@
 // footer.js
+import '../styles/footer.css';
+
 export function loadFooter() {
-  const footer = document.getElementById('footer');
-  footer.innerHTML = `
-      <p>&copy; 2024 My Portfolio. All rights reserved.</p>
-    `;
+
+// Create the footer dynamically
+const footer = document.createElement("footer");
+
+// Create the main container
+const footerContainer = document.createElement("div");
+footerContainer.className = "footer-container";
+
+// Section 1: Company Info
+const companyInfo = document.createElement("div");
+companyInfo.className = "footer-section";
+
+const companyTitle = document.createElement("h2");
+companyTitle.textContent = "Software Solutions";
+
+const companyDescription = document.createElement("p");
+companyDescription.textContent = "Building Tomorrow's Solution Today";
+
+companyInfo.appendChild(companyTitle);
+companyInfo.appendChild(companyDescription);
+
+// Add other sections dynamically
+function createSection(title, items) {
+  const section = document.createElement("div");
+  section.className = "footer-section";
+
+  const sectionTitle = document.createElement("h3");
+  sectionTitle.textContent = title;
+
+  const list = document.createElement("ul");
+
+  items.forEach((item) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item;
+    list.appendChild(listItem);
+  });
+
+  section.appendChild(sectionTitle);
+  section.appendChild(list);
+
+  return section;
+}
+
+const downloadSection = createSection("Download", ["Templates", "Source Code", "Tools", "Brochures"]);
+const productsSection = createSection("Products", ["Web", "App", "Software", "Ecommerce"]);
+const servicesSection = createSection("Services", ["Design", "Development"]);
+const companySection = createSection("Company", ["Terms & conditions", "Privacy Policy"]);
+
+// Get in Touch Section
+const getInTouch = document.createElement("div");
+getInTouch.className = "footer-section get-in-touch";
+
+const getInTouchTitle = document.createElement("h3");
+getInTouchTitle.textContent = "Get in touch";
+
+const socialIcons = document.createElement("div");
+socialIcons.className = "social-icons";
+
+["Facebook", "Twitter", "LinkedIn"].forEach((social) => {
+  const link = document.createElement("a");
+  link.href = "#";
+  link.textContent = social;
+  socialIcons.appendChild(link);
+});
+
+const subscribeForm = document.createElement("form");
+subscribeForm.className = "subscribe-form";
+
+const emailInput = document.createElement("input");
+emailInput.type = "email";
+emailInput.placeholder = "Enter email address";
+subscribeForm.appendChild(emailInput);
+
+const subscribeButton = document.createElement("button");
+subscribeButton.type = "submit";
+subscribeButton.textContent = "Subscribe";
+subscribeForm.appendChild(subscribeButton);
+
+getInTouch.appendChild(getInTouchTitle);
+getInTouch.appendChild(socialIcons);
+getInTouch.appendChild(subscribeForm);
+
+// Footer bottom text
+const footerBottom = document.createElement("div");
+footerBottom.className = "footer-bottom";
+
+const year = new Date().getFullYear();
+footerBottom.textContent = `© ${year} Software Solutions. All rights reserved.`;
+
+// Append sections to the container
+footerContainer.appendChild(companyInfo);
+footerContainer.appendChild(downloadSection);
+footerContainer.appendChild(productsSection);
+footerContainer.appendChild(servicesSection);
+footerContainer.appendChild(companySection);
+footerContainer.appendChild(getInTouch);
+
+// Append everything to the footer
+footer.appendChild(footerContainer);
+footer.appendChild(footerBottom);
+
+// Add the footer to the body
+document.body.appendChild(footer);
 }

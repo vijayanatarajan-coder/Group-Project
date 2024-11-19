@@ -18,12 +18,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new ESLintPlugin({
-      extensions: ['js'],
-      emitWarning: true,
-      failOnError: false,
-      overrideConfigFile: path.resolve(__dirname, 'src/.eslintrc.json'),
-    }),
   ],
   module: {
     rules: [
