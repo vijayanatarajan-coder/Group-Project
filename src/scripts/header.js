@@ -1,10 +1,9 @@
-import '../styles/header.css';
-import image from './images/js pic.jpg'; 
+import "../styles/header.css";
+import image from "./images/js pic.jpg";
 
 export function createHeader() {
   const header = document.createElement("div");
   header.className = "header-container";
-
 
   const logo = document.createElement("div");
   logo.className = "logo";
@@ -21,7 +20,6 @@ export function createHeader() {
   logo.appendChild(logoImg);
   logo.appendChild(logoText);
 
- 
   const navMenu = document.createElement("nav");
   navMenu.className = "nav-menu";
 
@@ -30,8 +28,8 @@ export function createHeader() {
   const menuItems = [
     { name: "Home", sectionId: "home" },
     { name: "About", sectionId: "about" },
+    { name: "Projects", sectionId: "projects" },
     { name: "Contact", sectionId: "contact" },
-    { name: "Our Projects", sectionId: "projects" },
   ];
 
   menuItems.forEach((item) => {
@@ -39,35 +37,34 @@ export function createHeader() {
     const a = document.createElement("a");
     a.href = `${item.sectionId}`;
     a.textContent = item.name;
-    a.addEventListener("click", (e) => navigateToSection(e, item.sectionId)); 
+    a.addEventListener("click", (e) => navigateToSection(e, item.sectionId));
     li.appendChild(a);
     ul.appendChild(li);
   });
 
   navMenu.appendChild(ul);
 
-  
+  const dropdownButton = document.createElement("button");
+  dropdownButton.className = "dropdown-button";
+  dropdownButton.textContent = "☰";
+
+  dropdownButton.addEventListener("click", () => {
+    ul.classList.toggle("show-menu");
+  });
+
   header.appendChild(logo);
+  header.appendChild(dropdownButton);
   header.appendChild(navMenu);
 
   return header;
 }
 
-
 function navigateToSection(e, sectionId) {
-  e.preventDefault(); 
+  e.preventDefault(); // Prevent default link behavior
 
-  
-  const pageMap = {
-    home: 'home.html',  
-    about: 'about.html',
-    contact: 'contact.html',
-    projects: 'projects.html',
-  };
-
-  const targetPage = pageMap[sectionId]; 
-  if (targetPage) {
-  
-    window.location.href = targetPage;
-  }
+  // Scroll to the target section smoothly
+  const targetSection = document.getElementById(sectionId);
+  if (targetSection) {
+    targetSection.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to section
+  }
 }

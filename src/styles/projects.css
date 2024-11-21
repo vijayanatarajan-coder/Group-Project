@@ -1,6 +1,7 @@
 /* Flexbox container for projects */
 .projects-container {
   display: flex;
+  gap: 5px;
 }
 
 /* Individual project cards */
@@ -35,19 +36,21 @@
 /* Title styling */
 .project-title {
   margin: 10px 0;
-  font-size: 25px;
+  font-size: 1.75vw;
   color: #000;
+  font-weight: 400;
   text-decoration: underline;
 }
 
 .project-Details {
-  margin: 10px;
   text-align: center;
   height: 130px;
+  margin-bottom: 50px;
 }
 /* Author styling */
 .project-author {
-  margin: 10px 0;
+  margin-top: 30px;
+  margin-bottom: 20px;
   font-size: 16px;
   color: #000;
 }
@@ -66,12 +69,12 @@
 /* Links styling */
 .project-links a {
   text-decoration: none;
-  color: #000;
-  font-weight: bold;
+  color: #241c15;
+  font-weight: 400;
   background-color: #fdde16;
-  border-radius: 10px;
+  border-radius: 25px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 0.9rem;
 }
 
 .project-links a:hover {
@@ -117,5 +120,10 @@
   .project-author,
   .project-languages {
     font-size: 0.8em; /* Smaller text for mobile */
+  }
+}
+@media (max-width: 848px) {
+  .project-links a {
+    font-size: 0.8rem;
   }
 }

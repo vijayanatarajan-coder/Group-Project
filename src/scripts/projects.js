@@ -1,26 +1,26 @@
 import "../styles/projects.css";
-import Etchasketch from "../assets/etch.png";
+import Etchasketch from "../assets/sketch1.png";
 import Ticktaktoe from "../assets/tictak.png";
-import Admindashboard from "../assets/admin1.png";
-import wheather from "../assets/etch.png";
+import Admindashboard from "../assets/dashboard1.png";
+import wheather from "../assets/Weather.png";
 
 export function loadProjectContent() {
   const projects = [
     {
       title: "Tic-Tac-Toe",
       languages: ["HTML", "CSS", "JavaScript"],
-      author: "Tahirmehmood",
+      author: "Swathismenon",
       tags: ["Web Development", "Frontend", "Responsive Design"],
       links: {
-        liveDemo: "https://tahirmehmood22.github.io/Tic-tac-toe/",
-        sourceCode: "https://github.com/Tahirmehmood22/Tic-tac-toe",
+        liveDemo: "https://swathismenon.github.io/Tic-Tac-Toe/",
+        sourceCode: "https://github.com/swathismenon/Tic-Tac-Toe",
       },
       image: Ticktaktoe,
       featured: true,
     },
     {
       title: "Admin-dashboard",
-      languages: ["HTML", "CSS"],
+      languages: ["HTML", "CSS", "JavaScript"],
       author: "Tehreem Fatima",
       tags: ["Full Stack", "Finance", "Personal Project"],
       links: {
@@ -45,11 +45,11 @@ export function loadProjectContent() {
     {
       title: "Wheather-app",
       languages: ["HTML", "CSS", "JavaScript"],
-      author: "Swathismenon",
+      author: "Tahirmehmood",
       tags: ["Web Development", "Frontend", "Responsive Design"],
       links: {
-        liveDemo: "https://janedoeportfolio.com",
-        sourceCode: "https://github.com/janedoe/portfolio-website",
+        liveDemo: "https://ljoskold.github.io/weather-app/",
+        sourceCode: "https://github.com/Tahirmehmood22/weather-app",
       },
       image: wheather,
       featured: true,

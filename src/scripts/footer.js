@@ -1,108 +1,110 @@
-
-import '../styles/footer.css';
+import "../styles/footer.css";
 
 export function loadFooter() {
+  const footer = document.createElement("footer");
 
+  const footerContainer = document.createElement("div");
+  footerContainer.className = "footer-container";
 
-const footer = document.createElement("footer");
+  const companyInfo = document.createElement("div");
+  companyInfo.className = "footer-section";
 
+  const companyTitle = document.createElement("h2");
+  companyTitle.textContent = "Software Solutions";
 
-const footerContainer = document.createElement("div");
-footerContainer.className = "footer-container";
+  const companyDescription = document.createElement("p");
+  companyDescription.textContent = "Building Tomorrow's Solution Today";
 
+  companyInfo.appendChild(companyTitle);
+  companyInfo.appendChild(companyDescription);
 
-const companyInfo = document.createElement("div");
-companyInfo.className = "footer-section";
+  function createSection(title, items) {
+    const section = document.createElement("div");
+    section.className = "footer-section";
 
-const companyTitle = document.createElement("h2");
-companyTitle.textContent = "Software Solutions";
+    const sectionTitle = document.createElement("h3");
+    sectionTitle.textContent = title;
 
-const companyDescription = document.createElement("p");
-companyDescription.textContent = "Building Tomorrow's Solution Today";
+    const list = document.createElement("ul");
 
-companyInfo.appendChild(companyTitle);
-companyInfo.appendChild(companyDescription);
+    items.forEach((item) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = item;
+      list.appendChild(listItem);
+    });
 
+    section.appendChild(sectionTitle);
+    section.appendChild(list);
 
-function createSection(title, items) {
-  const section = document.createElement("div");
-  section.className = "footer-section";
+    return section;
+  }
 
-  const sectionTitle = document.createElement("h3");
-  sectionTitle.textContent = title;
+  const downloadSection = createSection("Download", [
+    "Templates",
+    "Source Code",
+    "Tools",
+    "Brochures",
+  ]);
+  const productsSection = createSection("Products", [
+    "Web",
+    "App",
+    "Software",
+    "Ecommerce",
+  ]);
+  const servicesSection = createSection("Services", ["Design", "Development"]);
+  const companySection = createSection("Company", [
+    "Terms & conditions",
+    "Privacy Policy",
+  ]);
 
-  const list = document.createElement("ul");
+  const getInTouch = document.createElement("div");
+  getInTouch.className = "footer-section get-in-touch";
 
-  items.forEach((item) => {
-    const listItem = document.createElement("li");
-    listItem.textContent = item;
-    list.appendChild(listItem);
+  const getInTouchTitle = document.createElement("h3");
+  getInTouchTitle.textContent = "Get in touch";
+
+  const socialIcons = document.createElement("div");
+  socialIcons.className = "social-icons";
+
+  ["Facebook", "Twitter", "LinkedIn"].forEach((social) => {
+    const link = document.createElement("a");
+    link.href = "#";
+    link.textContent = social;
+    socialIcons.appendChild(link);
   });
 
-  section.appendChild(sectionTitle);
-  section.appendChild(list);
+  const subscribeForm = document.createElement("form");
+  subscribeForm.className = "subscribe-form";
 
-  return section;
-}
+  const emailInput = document.createElement("input");
+  emailInput.type = "email";
+  emailInput.placeholder = "Enter email address";
+  subscribeForm.appendChild(emailInput);
 
-const downloadSection = createSection("Download", ["Templates", "Source Code", "Tools", "Brochures"]);
-const productsSection = createSection("Products", ["Web", "App", "Software", "Ecommerce"]);
-const servicesSection = createSection("Services", ["Design", "Development"]);
-const companySection = createSection("Company", ["Terms & conditions", "Privacy Policy"]);
+  const subscribeButton = document.createElement("button");
+  subscribeButton.type = "submit";
+  subscribeButton.textContent = "Subscribe";
+  subscribeForm.appendChild(subscribeButton);
 
+  getInTouch.appendChild(getInTouchTitle);
+  getInTouch.appendChild(socialIcons);
+  getInTouch.appendChild(subscribeForm);
 
-const getInTouch = document.createElement("div");
-getInTouch.className = "footer-section get-in-touch";
+  const footerBottom = document.createElement("div");
+  footerBottom.className = "footer-bottom";
 
-const getInTouchTitle = document.createElement("h3");
-getInTouchTitle.textContent = "Get in touch";
+  const year = new Date().getFullYear();
+  footerBottom.textContent = `© ${year} VSFT Studios. All rights reserved.`;
 
-const socialIcons = document.createElement("div");
-socialIcons.className = "social-icons";
+  footerContainer.appendChild(companyInfo);
+  footerContainer.appendChild(downloadSection);
+  footerContainer.appendChild(productsSection);
+  footerContainer.appendChild(servicesSection);
+  footerContainer.appendChild(companySection);
+  footerContainer.appendChild(getInTouch);
 
-["Facebook", "Twitter", "LinkedIn"].forEach((social) => {
-  const link = document.createElement("a");
-  link.href = "#";
-  link.textContent = social;
-  socialIcons.appendChild(link);
-});
+  footer.appendChild(footerContainer);
+  footer.appendChild(footerBottom);
 
-const subscribeForm = document.createElement("form");
-subscribeForm.className = "subscribe-form";
-
-const emailInput = document.createElement("input");
-emailInput.type = "email";
-emailInput.placeholder = "Enter email address";
-subscribeForm.appendChild(emailInput);
-
-const subscribeButton = document.createElement("button");
-subscribeButton.type = "submit";
-subscribeButton.textContent = "Subscribe";
-subscribeForm.appendChild(subscribeButton);
-
-getInTouch.appendChild(getInTouchTitle);
-getInTouch.appendChild(socialIcons);
-getInTouch.appendChild(subscribeForm);
-
-
-const footerBottom = document.createElement("div");
-footerBottom.className = "footer-bottom";
-
-const year = new Date().getFullYear();
-footerBottom.textContent = `© ${year} Software Solutions. All rights reserved.`;
-
-
-footerContainer.appendChild(companyInfo);
-footerContainer.appendChild(downloadSection);
-footerContainer.appendChild(productsSection);
-footerContainer.appendChild(servicesSection);
-footerContainer.appendChild(companySection);
-footerContainer.appendChild(getInTouch);
-
-
-footer.appendChild(footerContainer);
-footer.appendChild(footerBottom);
-
-
-document.body.appendChild(footer);
+  document.body.appendChild(footer);
 }
