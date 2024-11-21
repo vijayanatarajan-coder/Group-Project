@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-// index.js
-
-import { loadFooter } from './footer.js';
-
-
-
-
+import { loadFooter } from "./footer.js";
+import { loadProjectContent } from "./projects.js";
 loadFooter();
-=======
-import { loadProjectContent } from './projects.js';
-
 loadProjectContent();
->>>>>>> group-project-branch
