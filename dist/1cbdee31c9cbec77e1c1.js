@@ -1,9 +1,9 @@
 // index.js
 import { loadHeader } from './header.js';
 import { loadFooter } from './footer.js';
-import { loadMainContent } from './main.js';
+import { createMemberSection } from './main.js';
 
 // Load modules
 loadHeader();
-loadMainContent();
+createMemberSection();
 loadFooter();
