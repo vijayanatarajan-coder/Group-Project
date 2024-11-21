@@ -1,5 +1,4 @@
-
-import { loadHeader } from './header.js';
-
-loadHeader();
-
+import { loadFooter } from './footer.js';
+import {loadProjectContent} from './projects.js';
+loadFooter();
+loadProjectContent();
