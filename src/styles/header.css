@@ -6,6 +6,9 @@ body {
 }
 
 
+
+
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -13,6 +16,7 @@ body {
   padding: 10px 20px;
   background-color: #f39f19; 
   border-bottom: 2px solid #f1c40f; 
+
   flex-wrap: wrap;
   position: relative;
 }
@@ -23,6 +27,15 @@ body {
   align-items: center;
   gap: 10px;
   overflow: hidden; 
+
+  flex-wrap: wrap; 
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+
 }
 
 .logo-img {
@@ -33,10 +46,14 @@ body {
 .logo-text {
   font-size: 20px;
   font-weight: bold;
+
   color: black;
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  color: black; 
+
 }
 
 
@@ -59,6 +76,7 @@ body {
 
 .nav-menu ul li a {
   text-decoration: none;
+
   color: #333;
   font-weight: bold;
   padding: 12px 24px;
@@ -147,10 +165,67 @@ body {
     flex-direction: column; 
     align-items: center;
     gap: 5px;
+
+  color: #333; 
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 25px;
+  background-color: #f1c40f; 
+  border: 2px solid transparent; 
+  position: relative; 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+
+
+.nav-menu ul li a:hover {
+  transform: translateY(-6px) scale(2.05); 
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 2.5); 
+}
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column; 
+    align-items: center; 
+    padding: 10px; 
+  }
+
+  .nav-menu ul {
+    gap: 15px;
+  }
+
+  .nav-menu ul li a {
+    padding: 10px 20px; 
+    font-size: 16px; 
+  }
+
+  .logo-text {
+    font-size: 18px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    flex-direction: column; 
+    align-items: center; 
+    padding: 10px; 
+  }
+
+  .nav-menu ul {
+    flex-direction: column; 
+    gap: 10px; 
+    text-align: center; 
+  }
+
+  .nav-menu ul li a {
+    padding: 10px 15px; 
+    font-size: 14px; 
+
   }
 
   .logo-text {
     font-size: 16px; 
+
   }
 
   .dropdown-button {
@@ -161,5 +236,6 @@ body {
   .nav-menu ul li a {
     padding: 8px 12px;
     font-size: 14px;
+
   }
 }

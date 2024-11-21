@@ -5,7 +5,7 @@ export function createHeader() {
   const header = document.createElement("div");
   header.className = "header-container";
 
- 
+  
   const logo = document.createElement("div");
   logo.className = "logo";
 
@@ -21,7 +21,7 @@ export function createHeader() {
   logo.appendChild(logoImg);
   logo.appendChild(logoText);
 
-  
+  // Navigation Menu
   const navMenu = document.createElement("nav");
   navMenu.className = "nav-menu";
 
@@ -37,26 +37,16 @@ export function createHeader() {
   menuItems.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    a.href = `#${item.sectionId}`;
+    a.href = `${item.sectionId}`;
     a.textContent = item.name;
-    a.addEventListener("click", (e) => navigateToSection(e, item.sectionId));
+    a.addEventListener("click", (e) => navigateToSection(e, item.sectionId)); // Add click event listener for navigation
     li.appendChild(a);
     ul.appendChild(li);
   });
 
   navMenu.appendChild(ul);
 
-  
-  const dropdownButton = document.createElement("button");
-  dropdownButton.className = "dropdown-button";
-  dropdownButton.textContent = "☰"; 
-
-  
-  dropdownButton.addEventListener("click", () => {
-    ul.classList.toggle("show-menu"); 
-  });
-
- 
+  // Append the logo and navigation menu to the header
   header.appendChild(logo);
   header.appendChild(dropdownButton);
   header.appendChild(navMenu);
@@ -66,17 +56,19 @@ export function createHeader() {
 
 
 function navigateToSection(e, sectionId) {
-  e.preventDefault(); 
+  e.preventDefault(); // Prevent default anchor link behavior
 
+  // You can map the sectionId to a URL of the page you want to navigate to
   const pageMap = {
-    home: "home.html",
-    about: "about.html",
-    contact: "contact.html",
-    projects: "projects.html",
+    home: 'home.html',  // Example: 'home.html' is the target page for the "Home" link
+    about: 'about.html',
+    contact: 'contact.html',
+    projects: 'projects.html',
   };
 
-  const targetPage = pageMap[sectionId];
+  const targetPage = pageMap[sectionId];  // Find the URL for the clicked section
   if (targetPage) {
+    // Redirect to the corresponding page
     window.location.href = targetPage;
-  }
+  }
 }
