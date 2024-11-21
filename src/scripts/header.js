@@ -1,5 +1,5 @@
 import '../styles/header.css';
-import image from './images/js pic.jpg'; 
+import image from './images/6531816.jpg'; 
 
 export function createHeader() {
   const header = document.createElement("div");
