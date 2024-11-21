@@ -1,11 +1,11 @@
 import '../styles/header.css';
-import image from './images/js pic.jpg'; // Adjust the path if needed
+import image from './images/js pic.jpg'; 
 
 export function createHeader() {
   const header = document.createElement("div");
   header.className = "header-container";
 
-  // Logo Section
+ 
   const logo = document.createElement("div");
   logo.className = "logo";
 
@@ -21,7 +21,7 @@ export function createHeader() {
   logo.appendChild(logoImg);
   logo.appendChild(logoText);
 
-  // Navigation Menu
+  
   const navMenu = document.createElement("nav");
   navMenu.className = "nav-menu";
 
@@ -39,35 +39,44 @@ export function createHeader() {
     const a = document.createElement("a");
     a.href = `#${item.sectionId}`;
     a.textContent = item.name;
-    a.addEventListener("click", (e) => navigateToSection(e, item.sectionId)); // Add click event listener for navigation
+    a.addEventListener("click", (e) => navigateToSection(e, item.sectionId));
     li.appendChild(a);
     ul.appendChild(li);
   });
 
   navMenu.appendChild(ul);
 
-  // Append the logo and navigation menu to the header
+  
+  const dropdownButton = document.createElement("button");
+  dropdownButton.className = "dropdown-button";
+  dropdownButton.textContent = "☰"; 
+
+  
+  dropdownButton.addEventListener("click", () => {
+    ul.classList.toggle("show-menu"); 
+  });
+
+ 
   header.appendChild(logo);
+  header.appendChild(dropdownButton);
   header.appendChild(navMenu);
 
   return header;
 }
 
-// Updated function to handle navigation and redirect to a new page
-function navigateToSection(e, sectionId) {
-  e.preventDefault(); // Prevent default anchor link behavior
 
-  // You can map the sectionId to a URL of the page you want to navigate to
+function navigateToSection(e, sectionId) {
+  e.preventDefault(); 
+
   const pageMap = {
-    home: 'home.html',  // Example: 'home.html' is the target page for the "Home" link
-    about: 'about.html',
-    contact: 'contact.html',
-    projects: 'projects.html',
+    home: "home.html",
+    about: "about.html",
+    contact: "contact.html",
+    projects: "projects.html",
   };
 
-  const targetPage = pageMap[sectionId];  // Find the URL for the clicked section
+  const targetPage = pageMap[sectionId];
   if (targetPage) {
-    // Redirect to the corresponding page
     window.location.href = targetPage;
   }
 }

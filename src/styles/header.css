@@ -1,26 +1,28 @@
-/* General Reset */
+
 body {
   margin: 0;
   font-family: "Arial", sans-serif;
   box-sizing: border-box;
 }
 
-/* Header Styling */
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #f39f19; /* Orange background */
-  border-bottom: 2px solid #f1c40f; /* Yellow border */
-  flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+  background-color: #f39f19; 
+  border-bottom: 2px solid #f1c40f; 
+  flex-wrap: wrap;
+  position: relative;
 }
 
-/* Logo Styling */
+
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between logo and text */
+  gap: 10px;
+  overflow: hidden; 
 }
 
 .logo-img {
@@ -31,14 +33,16 @@ body {
 .logo-text {
   font-size: 20px;
   font-weight: bold;
-  color: black; /* White text */
+  color: black;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Navigation Menu Styling */
+
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
 .nav-menu ul {
@@ -46,7 +50,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 20px;
+  gap: 20px; 
 }
 
 .nav-menu ul li {
@@ -55,66 +59,107 @@ body {
 
 .nav-menu ul li a {
   text-decoration: none;
-  color: #333; /* Dark text */
+  color: #333;
   font-weight: bold;
   padding: 12px 24px;
   border-radius: 25px;
-  background-color: #f1c40f; /* Yellow background */
-  border: 2px solid transparent; /* Invisible border for effect */
-  position: relative; /* For pseudo-element */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+  background-color: #f1c40f;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Button Hover Effect */
 .nav-menu ul li a:hover {
-  transform: translateY(-6px) scale(2.05); /* Slight move up and scale the button */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 2.5); /* Shadow only at the bottom of the button */
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* Responsive Design for Different Screen Sizes */
 
-/* For tablets and larger devices (max-width: 768px) */
+.dropdown-button {
+  display: none; 
+  font-size: 24px;
+  background-color: #f39f19; 
+  border: none;
+  cursor: pointer;
+  color: black; 
+  padding: 10px;
+  border-radius: 5px;
+  white-space: nowrap; 
+}
+
+
+.nav-menu ul.show-menu {
+  display: block;
+}
+
+
+
+
 @media (max-width: 768px) {
   .header-container {
-    flex-direction: column; /* Stack logo and navigation vertically */
-    align-items: center; /* Center align items */
-    padding: 10px; /* Reduce padding for smaller screens */
+    padding: 10px 15px; 
+  }
+
+  .logo {
+    gap: 5px; 
   }
 
   .nav-menu ul {
-    gap: 15px; /* Reduce space between menu items */
+    display: none; 
+    flex-direction: column; 
+    gap: 15px; 
+    text-align: center;
+    background-color: white; 
+    padding: 10px;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    z-index: 1000;
+    width: calc(100% - 40px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+
+  .dropdown-button {
+    display: block; 
+    font-size: 18px; 
+    padding: 8px 12px; 
+  }
+
+  .nav-menu ul.show-menu {
+    display: flex; 
+  }
+
+  .nav-menu ul li {
+    width: 100%; 
   }
 
   .nav-menu ul li a {
-    padding: 10px 20px; /* Adjust padding for smaller screens */
-    font-size: 16px; /* Adjust font size */
-  }
-
-  .logo-text {
-    font-size: 18px; /* Adjust logo text size for smaller screens */
+    display: block; 
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: left; 
   }
 }
 
-/* For mobile devices (max-width: 480px) */
+
 @media (max-width: 480px) {
-  .header-container {
-    flex-direction: column; /* Stack logo and navigation vertically */
-    align-items: center; /* Center align items */
-    padding: 10px; /* Reduce padding */
-  }
-
-  .nav-menu ul {
-    flex-direction: column; /* Stack the menu items vertically */
-    gap: 10px; /* Reduce space between menu items */
-    text-align: center; /* Center align the menu items */
-  }
-
-  .nav-menu ul li a {
-    padding: 10px 15px; /* Adjust padding for mobile screens */
-    font-size: 14px; /* Adjust font size */
+  .logo {
+    flex-direction: column; 
+    align-items: center;
+    gap: 5px;
   }
 
   .logo-text {
-    font-size: 16px; /* Further reduce logo text size */
+    font-size: 16px; 
+  }
+
+  .dropdown-button {
+    font-size: 16px; 
+    padding: 6px 10px; 
+  }
+
+  .nav-menu ul li a {
+    padding: 8px 12px;
+    font-size: 14px;
   }
 }
