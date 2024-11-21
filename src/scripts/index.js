@@ -1,7 +1,11 @@
-import { loadHeader } from './header.js';
+import { createHeader } from './header.js';
+import { loadAbout } from './about.js';
+import { loadProjectContent } from './projects.js';
 import { loadFooter } from './footer.js';
-import { loadMainContent } from './main.js';
 
-loadHeader();
-loadMainContent();
+document.addEventListener("DOMContentLoaded", () => {
+    const headerElement = document.getElementById("header");
+    headerElement.appendChild(createHeader());});
+loadAbout()
+loadProjectContent()
 loadFooter();

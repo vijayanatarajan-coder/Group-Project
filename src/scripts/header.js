@@ -37,7 +37,7 @@ export function createHeader() {
   menuItems.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    a.href = `#${item.sectionId}`;
+    a.href = `${item.sectionId}`;
     a.textContent = item.name;
     a.addEventListener("click", (e) => navigateToSection(e, item.sectionId)); 
     li.appendChild(a);
@@ -69,5 +69,5 @@ function navigateToSection(e, sectionId) {
   if (targetPage) {
   
     window.location.href = targetPage;
-  }
+  }
 }
