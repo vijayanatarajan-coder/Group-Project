@@ -5,6 +5,7 @@ export function createHeader() {
   const header = document.createElement("div");
   header.className = "header-container";
 
+  // Logo part
   const logo = document.createElement("div");
   logo.className = "logo";
 
@@ -20,23 +21,27 @@ export function createHeader() {
   logo.appendChild(logoImg);
   logo.appendChild(logoText);
 
+  // Create the navigation menu
   const navMenu = document.createElement("nav");
   navMenu.className = "nav-menu";
 
   const ul = document.createElement("ul");
 
+  // Define menu items with corresponding section IDs
   const menuItems = [
-    { name: "Home", sectionId: "home" },
+    { name: "Home", sectionId: "main" },
     { name: "About", sectionId: "about" },
-    { name: "Projects", sectionId: "projects" },
-    { name: "Contact", sectionId: "contact" },
+    { name: "Projects", sectionId: "project" },
+    { name: "Contact", sectionId: "footer" },
   ];
 
   menuItems.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    a.href = `${item.sectionId}`;
+    a.href = `#${item.sectionId}`; // Correct href with hash for internal links
     a.textContent = item.name;
+
+    // Add event listener for smooth scrolling
     a.addEventListener("click", (e) => navigateToSection(e, item.sectionId));
     li.appendChild(a);
     ul.appendChild(li);
@@ -44,6 +49,7 @@ export function createHeader() {
 
   navMenu.appendChild(ul);
 
+  // Create a dropdown button for smaller screens
   const dropdownButton = document.createElement("button");
   dropdownButton.className = "dropdown-button";
   dropdownButton.textContent = "☰";
@@ -52,6 +58,7 @@ export function createHeader() {
     ul.classList.toggle("show-menu");
   });
 
+  // Append everything to the header
   header.appendChild(logo);
   header.appendChild(dropdownButton);
   header.appendChild(navMenu);
@@ -59,6 +66,7 @@ export function createHeader() {
   return header;
 }
 
+// Smooth scrolling function
 function navigateToSection(e, sectionId) {
   e.preventDefault(); // Prevent default link behavior
 

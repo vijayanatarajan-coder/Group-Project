@@ -106,5 +106,5 @@ export function loadFooter() {
   footer.appendChild(footerContainer);
   footer.appendChild(footerBottom);
 
-  document.body.appendChild(footer);
+  return footer; // Return the footer to be added to the page
 }

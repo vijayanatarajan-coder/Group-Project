@@ -26,8 +26,8 @@ export function loadAbout() {
   section.appendChild(button);
 
   // Append the section to the body
-  document.body.appendChild(section);
-
+  //document.body.appendChild(section);
+  return section;
   // Add the CSS styles dynamically
   const style = document.createElement("style");
   style.textContent = `

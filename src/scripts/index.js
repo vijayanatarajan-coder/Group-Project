@@ -1,16 +1,22 @@
 import { createHeader } from "./header.js";
 import { loadAbout } from "./about.js";
+import { loadMainContent } from "./main.js";
 import { loadProjectContent } from "./projects.js";
 import { loadFooter } from "./footer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Load Header
   const headerElement = document.getElementById("header");
   headerElement.appendChild(createHeader());
-});
-loadAbout();
-loadProjectContent();
-loadFooter();
 
+  // Load About Section
+  const aboutElement = document.getElementById("about");
+  aboutElement.appendChild(loadAbout()); // Ensure it appends content to the correct container
+  loadMainContent();
+
+  loadProjectContent();
+  loadFooter();
+});
 const quotes = [
   "The only way to do great work is to love what you do. - Steve Jobs",
   "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
